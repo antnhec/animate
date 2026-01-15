@@ -55,7 +55,9 @@
   Enable Motion
 </button>
 
-<script>
+
+    </a-scene>
+    <script>
 document.getElementById('enable-motion').addEventListener('click', function () {
   if (typeof DeviceOrientationEvent !== 'undefined' &&
       typeof DeviceOrientationEvent.requestPermission === 'function') {
@@ -68,9 +70,6 @@ document.getElementById('enable-motion').addEventListener('click', function () {
   }
 });
 </script>
-
-
-    </a-scene>
   </body>
 </html>
 
