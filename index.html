@@ -50,6 +50,25 @@
         position="-2.5 2 -8"
         scale="8 8 8">
       </a-entity>
+      <a-entity id="camera" camera look-controls position="0 1.6 0"></a-entity>
+<button id="enable-motion" style="position: fixed; top: 10px; left: 10px; z-index: 100;">
+  Enable Motion
+</button>
+
+<script>
+document.getElementById('enable-motion').addEventListener('click', function () {
+  if (typeof DeviceOrientationEvent !== 'undefined' &&
+      typeof DeviceOrientationEvent.requestPermission === 'function') {
+    DeviceOrientationEvent.requestPermission()
+      .then(response => {
+        if (response === 'granted') {
+          alert('Motion enabled!');
+        }
+      }).catch(console.error);
+  }
+});
+</script>
+
 
     </a-scene>
   </body>
