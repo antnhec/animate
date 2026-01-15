@@ -3,33 +3,32 @@
   <head>
     <title>ECS – A-Frame School</title>
     <meta name="description" content="ECS – A-Frame School">
- <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-animation-component@^5.0.0/dist/aframe-animation-component.min.js"></script>
   </head>
 
   <body>
     <a-scene>
- <a-sky src="https://cdn.aframe.io/a-painter/images/sky.jpg"></a-sky>
+      <a-sky src="https://cdn.aframe.io/a-painter/images/sky.jpg"></a-sky>
       <a-assets>
         <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
-        
       </a-assets>
-<a-entity
-  id="lightsphere"
-  geometry="primitive: sphere; radius: 0.2"
-  material="color: white; shader: flat"
-  light="type: point; intensity: 1; distance: 50"
-  position="-4 3 -10"
-  animation="property: position; from: -4 3 -10; to: 4 3 -10; loop: true; dir: alternate; dur: 4000">
-</a-entity>
 
+      <a-entity
+        id="lightsphere"
+        geometry="primitive: sphere; radius: 0.2"
+        material="color: white; shader: flat"
+        light="type: point; intensity: 1; distance: 50"
+        position="-4 3 -10"
+        animation="property: position; from: -4 3 -10; to: 4 3 -10; loop: true; dir: alternate; dur: 4000">
+      </a-entity>
 
-   <a-entity
-  geometry="primitive: box"
-  material="color: red"
-  position="0 0.5 -5"
-  animation="property: position; to: 1 2 -5; dur: 2000; easing: linear; loop: true">
-</a-entity>
+      <a-entity
+        geometry="primitive: box"
+        material="color: red"
+        position="0 0.5 -5"
+        animation="property: position; to: 1 2 -5; dur: 2000; easing: linear; loop: true">
+      </a-entity>
 
       <a-entity geometry="primitive: box" material="color: orange" position="-2 0.5 -8"></a-entity>
       <a-entity geometry="primitive: box" material="color: yellow" position="-2 0.5 -6"></a-entity>
@@ -50,29 +49,28 @@
         position="-2.5 2 -8"
         scale="8 8 8">
       </a-entity>
+
+      <!-- CAMERA -->
       <a-entity id="camera" camera look-controls position="0 1.6 0"></a-entity>
-<button id="enable-motion" style="position: fixed; top: 10px; left: 10px; z-index: 100;">
-  Enable Motion
-</button>
-
-
     </a-scene>
+
+    <!-- BUTTON must be outside the scene -->
+    <button id="enable-motion" style="position: fixed; top: 10px; left: 10px; z-index: 100;">
+      Enable Motion
+    </button>
+
     <script>
-document.getElementById('enable-motion').addEventListener('click', function () {
-  if (typeof DeviceOrientationEvent !== 'undefined' &&
-      typeof DeviceOrientationEvent.requestPermission === 'function') {
-    DeviceOrientationEvent.requestPermission()
-      .then(response => {
-        if (response === 'granted') {
-          alert('Motion enabled!');
-        }
-      }).catch(console.error);
-  }
-});
-</script>
+    document.getElementById('enable-motion').addEventListener('click', function () {
+      if (typeof DeviceOrientationEvent !== 'undefined' &&
+          typeof DeviceOrientationEvent.requestPermission === 'function') {
+        DeviceOrientationEvent.requestPermission()
+          .then(response => {
+            if (response === 'granted') {
+              alert('Motion enabled!');
+            }
+          }).catch(console.error);
+      }
+    });
+    </script>
   </body>
 </html>
-
-
-
-        
